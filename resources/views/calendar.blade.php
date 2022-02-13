@@ -11,6 +11,7 @@
       <th scope="col">Subject</th>
       <th scope="col">Start</th>
       <th scope="col">End</th>
+      <th scope="col">Url</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
           <td>{{ $event->getSubject() }}</td>
           <td>{{ \Carbon\Carbon::parse($event->getStart()->getDateTime())->format('n/j/y g:i A') }}</td>
           <td>{{ \Carbon\Carbon::parse($event->getEnd()->getDateTime())->format('n/j/y g:i A') }}</td>
+          <td><a href="{{ $event->getOnlineMeeting()->getJoinUrl() }}" target="_blank">Link</a></td>
         </tr>
       @endforeach
     @endif
