@@ -122,9 +122,15 @@ public function createNewEvent(Request $request)
     ]
   ];
 
+  $data = [
+    'subject' => 'Test Meeting',
+    'startDateTime' => '2020-10-12T06:30:00',
+    'endDateTime' => '2020-10-12T126:30:00',
+  ];
+
   // POST /me/events
-  $response = $graph->createRequest('POST', '/me/events')
-    ->attachBody($newEvent)
+  $response = $graph->createRequest('POST', '/me/onlineMeetings')
+    ->attachBody($data)
     ->setReturnType(Model\Event::class)
     ->execute();
 

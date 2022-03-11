@@ -22,7 +22,7 @@
           <td>{{ $event->getSubject() }}</td>
           <td>{{ \Carbon\Carbon::parse($event->getStart()->getDateTime())->format('n/j/y g:i A') }}</td>
           <td>{{ \Carbon\Carbon::parse($event->getEnd()->getDateTime())->format('n/j/y g:i A') }}</td>
-          <td><a href="{{ $event->getOnlineMeeting()->getJoinUrl() }}" target="_blank">Link</a></td>
+          <td><a href="{{ $event->getOnlineMeeting()  ? $event->getOnlineMeeting()->getJoinUrl() : '' }}" target="_blank">Link</a></td>
         </tr>
       @endforeach
     @endif
